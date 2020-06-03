@@ -28,7 +28,7 @@ const savePatreons = () => {
       const tier = i.pledge_cap_cents === 100 ? 'bronze' : i.pledge_cap_cents === 300 ? 'silver' : 'gold'
       save[tier].push(firstName)
     }
-  
+
     set('nook:pledges', JSON.stringify(save))
     console.log(new Date() + ' | Saved pledges.')
   })
@@ -45,7 +45,7 @@ setInterval(function () {
 savePatreons()
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
